@@ -1,0 +1,53 @@
+{% extends "lmsapp/base.html" %}
+
+{% load staticfiles %}
+
+
+{% block container %}
+
+
+<!--<div class="container" style="margin-top: 3%;">-->
+  <div class="row">
+    <div class="col-lg-12">
+     <h2>Book Issue List</h2>
+
+
+     {% if issue_list %}
+             <table class="table table-bordered">
+                <tr>
+                    <th>Book</th>
+                    <th>User</th>
+                    <th>Issued_date</th>
+                    <th>Due_date</th>
+                    <th>Issued_by</th>
+                    <!--<th></th>-->
+                    <!--<th></th>-->
+                    <!--<th></th>-->
+                </tr>
+                {% for issue in issue_list %}
+                <tr>
+                    <td>{{issue.book.title}}</td>
+                    <td>{{issue.user.email}}</td>
+                    <td>{{issue.issued_date}}</td>
+                    <td>{{issue.due_date}}</td>
+                    <td>{{issue.issued_by}}</td>
+
+                    <!--<td><a href="/lms/issues/{{issue.id}}/" class="btn btn-success">Show</a></td>-->
+                    <!--<td><a href="/lms/issues/{{issue.id}}/edit" class="btn btn-warning">Edit</a></td>-->
+                    <!--<td><a href="/lms/issues/{{issue.id}}/delete" class="btn btn-danger">Delete</a></td>-->
+
+
+                </tr>
+
+                {% endfor %}
+
+                 </table>
+            {% else %}
+            <p>No Issues are available.</p>
+            {% endif %}
+
+    </div>
+  </div>
+<!--</div>-->
+
+{% endblock container %}

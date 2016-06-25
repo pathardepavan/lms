@@ -1,0 +1,29 @@
+{% extends 'lmsapp/base.html' %}
+
+{% block container %}
+    <h1>Publisher Detail</h1>
+    <table class="table table-bordered">
+                <tr>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Country</th>
+                    <th>Website</th>
+                </tr>
+
+                <tr>
+                    <td>{{name}}</td>
+                    <td>{{address}}</td>
+                    <td>{{city}}</td>
+                    <td>{{state}}</td>
+                    <td>{{country}}</td>
+                    <td>{{website}}</td>
+
+
+                </tr>
+
+
+
+                 </table>
+{% endblock container %}

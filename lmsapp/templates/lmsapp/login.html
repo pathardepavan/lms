@@ -1,0 +1,43 @@
+{% extends "lmsapp/base.html" %}
+
+{% load staticfiles %}
+
+{% block container %}
+{% if user.is_authenticated %}
+ <h3>Hey, {{user.email}} You have already logged in</h3>
+{% else %}
+<div class="col-md-6 col-md-offset-2">
+    <h2>Login</h2>
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li
+        {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <form class="form-horizontal" name="LoginForm" action="" method="post">
+        {% csrf_token %}
+
+        {% if next %}
+        <input type="hidden" name="next" value="{{ next }}"/>
+        {% endif %}
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" name="username">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" name="password">
+        </div>
+
+        <div class="control-group">
+            <div class="controls">
+                <button type="submit" class="btn btn-success">Login</button>
+            </div>
+        </div>
+    </form>
+</div>
+{% endif %}
+{% endblock container %}

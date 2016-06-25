@@ -1,0 +1,57 @@
+{% extends "lmsapp/base.html" %}
+
+{% load staticfiles %}
+
+{% block navbar-right %}
+{% if not user.is_authenticated %}
+
+{% else %}
+{{ block.super }}
+{% endif %}
+{% endblock %}
+
+{% block splash %}
+
+{% endblock splash %}
+
+{% block container %}
+<div class="row">
+<div class="jumbotron jumbotron-carousel corporate-jumbo">
+        <h1>Home</h1>
+             <p>Welcome to Library Management System</p>
+
+</div>
+</div>
+
+
+<div class="row" style="margin-top: 5%">
+            <div class="col-lg-4">
+                <h2>Books</h2>
+
+                <p>You can manage books with this portal</p>
+
+                <p><a class="btn btn-primary" href="#" role="button">Books List&raquo;</a></p>
+            </div>
+            <div class="col-lg-4">
+                <h2>Publishers</h2>
+
+                <p>Manage publishers who are the foundation for books business</p>
+
+                <p><a class="btn btn-primary" href="#" role="button">Publishers List &raquo;</a></p>
+            </div>
+            <div class="col-lg-4">
+                <h2>Issue Books</h2>
+
+                <p>You can issue book to students and teachers</p>
+
+                <p><a class="btn btn-primary" href="#" role="button">Issue Books &raquo;</a></p>
+            </div>
+</div>
+
+
+{% endblock container %}
+
+{% block scripts %}
+<script src="{% static 'site/js/site.js' %}"></script>
+{% endblock scripts %}
+

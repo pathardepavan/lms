@@ -1,0 +1,30 @@
+{% extends 'lmsapp/base.html' %}
+
+{% block container %}
+    <h1>Book Detail</h1>
+    <table class="table table-bordered">
+
+                <tr>
+                    <th>Title</th>
+                    <th>Price</th>
+                    <th>ISBN</th>
+                    <th>Authors</th>
+                    <th>Publisher</th>
+                    <th>Pub_date</th>
+                    <th>Available</th>
+                </tr>
+
+                <tr>
+                    <td>{{title}}</td>
+                    <td>{{price}}</td>
+                    <td>{{isbn}}</td>
+                    <td>{{authors}}</td>
+                    <td>{{publisher}}</td>
+                    <td>{{publication_date}}</td>
+                    <td>{{available}}</td>
+                </tr>
+
+
+
+                 </table>
+{% endblock container %}

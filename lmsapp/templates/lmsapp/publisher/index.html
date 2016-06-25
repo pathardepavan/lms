@@ -1,0 +1,53 @@
+{% extends "lmsapp/base.html" %}
+
+{% load staticfiles %}
+
+
+{% block container %}
+
+
+<!--<div class="container" style="margin-top: 3%;">-->
+  <div class="row">
+    <div class="col-lg-12">
+     <h2>Publishers List</h2>
+
+
+     {% if publisher_list %}
+             <table class="table table-bordered">
+                <tr>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Country</th>
+                    <th>Website</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                {% for publisher in publisher_list %}
+                <tr>
+                    <td>{{publisher.name}}</td>
+                    <td>{{publisher.address}}</td>
+                    <td>{{publisher.city}}</td>
+                    <td>{{publisher.state}}</td>
+                    <td>{{publisher.country}}</td>
+                    <td>{{publisher.website}}</td>
+                    <td><a href="/lms/publishers/{{publisher.id}}/" class="btn btn-success">Show</a></td>
+                    <td><a href="/lms/publishers/{{publisher.id}}/edit" class="btn btn-warning">Edit</a></td>
+                    <td><a href="/lms/publishers/{{publisher.id}}/delete" class="btn btn-danger">Edit</a></td>
+
+
+                </tr>
+
+                {% endfor %}
+
+                 </table>
+            {% else %}
+            <p>No polls are available.</p>
+            {% endif %}
+
+    </div>
+  </div>
+<!--</div>-->
+
+{% endblock container %}
